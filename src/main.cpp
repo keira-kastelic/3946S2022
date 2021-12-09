@@ -1,5 +1,11 @@
 #include "main.h"
-
+pros::Motor frontRight;
+extern pros::Motor frontLeft;
+extern pros::Motor backRight;
+extern pros::Motor backLeft;
+extern pros::Motor leftLift;
+extern pros::Motor rightLift;
+extern pros::Motor intake;
 /**
  * A callback function for LLEMU's center button.
  *
@@ -73,8 +79,11 @@ void autonomous() {}
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
+
 void opcontrol() {
-	pros::Controller master(pros::E_CONTROLLER_MASTER);
+
+
+	/*pros::Controller master(pros::E_CONTROLLER_MASTER);
 	pros::Motor left_mtr(1);
 	pros::Motor right_mtr(2);
 
@@ -87,6 +96,6 @@ void opcontrol() {
 
 		left_mtr = left;
 		right_mtr = right;
-		pros::delay(20);
+		pros::delay(20);*/
 	}
 }

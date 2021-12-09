@@ -45,7 +45,7 @@ typedef struct _disp_drv_t {
     /*Optional interface functions to use GPU*/
 #if USE_LV_GPU
     /*Blend two memories using opacity (GPU only)*/
-    void (*mem_blend)(lv_color_t * dest, const lv_color_t * src, uint32_t length, lv_opa_t opa);
+    void (*mem_blend)(lv_color_t * dest, const lv_color_t * Subsystems, uint32_t length, lv_opa_t opa);
 
     /*Fill a memory with a color (GPU only)*/
     void (*mem_fill)(lv_color_t * dest, uint32_t length, lv_color_t color);
@@ -135,19 +135,19 @@ void lv_disp_map(int32_t x1, int32_t y1, int32_t x2, int32_t y2, const lv_color_
 /**
  * Blend pixels to a destination memory from a source memory
  * In 'lv_disp_drv_t' 'mem_blend' is optional. (NULL if not available)
- * @param dest a memory address. Blend 'src' here.
- * @param src pointer to pixel map. Blend it to 'dest'.
- * @param length number of pixels in 'src'
+ * @param dest a memory address. Blend 'Subsystems' here.
+ * @param Subsystems pointer to pixel map. Blend it to 'dest'.
+ * @param length number of pixels in 'Subsystems'
  * @param opa opacity (0, LV_OPA_TRANSP: transparent ... 255, LV_OPA_COVER, fully cover)
  */
-void lv_disp_mem_blend(lv_color_t * dest, const lv_color_t * src, uint32_t length, lv_opa_t opa);
+void lv_disp_mem_blend(lv_color_t * dest, const lv_color_t * Subsystems, uint32_t length, lv_opa_t opa);
 
 /**
  * Fill a memory with a color (GPUs may support it)
  * In 'lv_disp_drv_t' 'mem_fill' is optional. (NULL if not available)
- * @param dest a memory address. Copy 'src' here.
- * @param src pointer to pixel map. Copy it to 'dest'.
- * @param length number of pixels in 'src'
+ * @param dest a memory address. Copy 'Subsystems' here.
+ * @param Subsystems pointer to pixel map. Copy it to 'dest'.
+ * @param length number of pixels in 'Subsystems'
  * @param opa opacity (0, LV_OPA_TRANSP: transparent ... 255, LV_OPA_COVER, fully cover)
  */
 void lv_disp_mem_fill(lv_color_t * dest, uint32_t length, lv_color_t color);

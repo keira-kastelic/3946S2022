@@ -75,6 +75,8 @@ void opcontrol(void);
 /**
  * You can add C++-only headers here
  */
+ //pragma, subsystems, autonomous
+#include "Subsystems/drive.hpp"
 //#include <iostream>
 #endif
 
