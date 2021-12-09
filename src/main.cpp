@@ -1,5 +1,7 @@
 #include "main.h"
-pros::Motor frontRight;
+pros::Motor::Motor ( const std::uint8_t port,
+                     const pros::motor_gearset_e_t gearset,
+                     const bool reverse )
 extern pros::Motor frontLeft;
 extern pros::Motor backRight;
 extern pros::Motor backLeft;
