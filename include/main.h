@@ -77,6 +77,10 @@ void opcontrol(void);
  */
  //pragma, subsystems, autonomous
 #include "Subsystems/drive.hpp"
+#include "Subsystems/auton.hpp"
+#include "Subsystems/lift.hpp"
+#include "Subsystems/conveyor.hpp"
+#include "Subsystems/pragma.hpp"
 //#include <iostream>
 #endif
 

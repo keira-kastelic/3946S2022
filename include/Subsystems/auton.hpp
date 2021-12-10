@@ -4,5 +4,6 @@
 
 #ifndef INC_3946S2022_AUTON_HPP
 #define INC_3946S2022_AUTON_HPP
-
+#include "../main.h"
 #endif //INC_3946S2022_AUTON_HPP
+

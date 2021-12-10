@@ -1,13 +1,4 @@
 #include "main.h"
-pros::Motor::Motor ( const std::uint8_t port,
-                     const pros::motor_gearset_e_t gearset,
-                     const bool reverse )
-extern pros::Motor frontLeft;
-extern pros::Motor backRight;
-extern pros::Motor backLeft;
-extern pros::Motor leftLift;
-extern pros::Motor rightLift;
-extern pros::Motor intake;
 /**
  * A callback function for LLEMU's center button.
  *
@@ -15,13 +6,13 @@ extern pros::Motor intake;
  * "I was pressed!" and nothing.
  */
 void on_center_button() {
-	static bool pressed = false;
+	/*static bool pressed = false;
 	pressed = !pressed;
 	if (pressed) {
 		pros::lcd::set_text(2, "I was pressed!");
 	} else {
 		pros::lcd::clear_line(2);
-	}
+	}*/
 }
 
 /**
@@ -31,10 +22,6 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
-
-	pros::lcd::register_btn1_cb(on_center_button);
 }
 
 /**
@@ -42,7 +29,8 @@ void initialize() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-void disabled() {}
+void disabled() {
+}
 
 /**
  * Runs after initialize(), and before autonomous when connected to the Field
@@ -53,7 +41,9 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -67,13 +57,7 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-        pros::Motor left_wheels (LEFT_WHEELS_PORT);
-        pros::Motor right_wheels (RIGHT_WHEELS_PORT, true); // This reverses the motor
-
-        right_wheels.move_relative(1000, MOTOR_MAX_SPEED);
-        left_wheels.move_relative(1000, MOTOR_MAX_SPEED);
     }
-}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -90,21 +74,12 @@ void autonomous() {
  */
 
 void opcontrol() {
+    pros::lcd::initialize();
+    pros::lcd::set_text(0,"3946S's captains cannot focus for more than 1 second");
+    pros::lcd::set_text(1, "and will probably not read this message :)");
 
-
-	/*pros::Controller master(pros::E_CONTROLLER_MASTER);
-	pros::Motor left_mtr(1);
-	pros::Motor right_mtr(2);
-
-	while (true) {
-		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
-		                 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
-		                 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
-		int left = master.get_analog(ANALOG_LEFT_Y);
-		int right = master.get_analog(ANALOG_RIGHT_Y);
-
-		left_mtr = left;
-		right_mtr = right;
-		pros::delay(20);*/
-	}
+    //Start pros tasks here
+    while(true){
+        rk8DriverControl();
+    }
 }
