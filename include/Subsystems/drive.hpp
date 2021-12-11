@@ -13,4 +13,4 @@ void setDrive(int leftPct, int rightPct);
 
 void rk8DriverControl();
 
-void tankDriverControl();
+//void tankDriverControl();

@@ -4,7 +4,7 @@
 
 #include "../../include/main.h"
 void setIntake(){
-    conveyor.move_absolute(0,100);
+    conveyor.move_velocity(600);
 }
 
 void intake(int intakePwr){

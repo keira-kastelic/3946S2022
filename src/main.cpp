@@ -23,6 +23,7 @@ void on_center_button() {
  */
 void initialize() {
     pros::lcd::initialize();
+    std::cout << "init";
 }
 
 /**
@@ -74,13 +75,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 
-void opcontrol() {
-
-    pros::lcd::set_text(0,"3946S's captains cannot focus for more than 1 second");
-    pros::lcd::set_text(1, "and will probably not read this message :)");
-
-    //Start pros tasks here
-    while(true){
-        rk8DriverControl();
-    }
+[[noreturn]] void opcontrol() {
+    pros::lcd::initialize();
 }
