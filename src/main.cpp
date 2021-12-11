@@ -22,6 +22,7 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
+    pros::lcd::initialize();
 }
 
 /**
@@ -74,7 +75,7 @@ void autonomous() {
  */
 
 void opcontrol() {
-    pros::lcd::initialize();
+
     pros::lcd::set_text(0,"3946S's captains cannot focus for more than 1 second");
     pros::lcd::set_text(1, "and will probably not read this message :)");
 
